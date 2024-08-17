@@ -20,8 +20,6 @@ export default async function Home() {
           </Link>
         ))}
       </div>
-      {/* <CarCard data={car} /> */}
-
       {}
     </main>
   );

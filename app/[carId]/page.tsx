@@ -17,7 +17,8 @@ const CarPage = async ({ params }: { params: { carId: number } }) => {
           bg-transparent border-2  border-sky-800 
            drop-shadow-lg border-b-4  group
           opacity-90  text-xl text-center
-          font-bold text-white cursor-pointer hover:opacity-100 hover:animate-pulse"
+          font-bold text-white cursor-pointer
+           hover:opacity-100 hover:animate-pulse"
         >
           <p className=" group-hover:scale-105">{feature}</p>
         </div>
