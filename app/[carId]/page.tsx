@@ -9,7 +9,13 @@ const CarPage = async ({ params }: { params: { carId: number } }) => {
       <div className=" text-5xl font-semibold text-red-950"> Nothing!</div>
     );
   return (
-    <div className=" w-full h-full p-24 flex flex-col gap-4 ">
+    <div className=" w-full h-full container flex flex-col gap-4 ">
+      <div>
+        <p className=" h4 text-red-primary">
+          This are the properties arent they arent they them yes they are they
+          are dem they are this
+        </p>
+      </div>
       {individualCar.features.map((feature: any) => (
         <div
           key={feature}
