@@ -9,7 +9,11 @@ export const Hero = () => {
      
     '
     >
-      <div className=" w-full"></div>
+      <div className=" w-full  px-6 md:px-12">
+        <h2 className=" h2 backdrop-blur-sm">
+          Get your dream car, today what are you waiting for ?
+        </h2>
+      </div>
       <SearchBox />
     </div>
   );
