@@ -57,12 +57,14 @@ export const Faq = (props: Faq1Props) => {
           ))}
         </Accordion>
         <div className="mx-auto mt-12 max-w-md text-center md:mt-18 lg:mt-20">
-          <h4 className="mb-3  h4 text-white-dark ">{footerHeading}</h4>
+          <h4 className="mb-3  md:text-3xl font-semibold text-xl  text-white-dark ">
+            {footerHeading}
+          </h4>
           <p className="md:text-md">{footerDescription}</p>
-          <div className="mt-4 md:mt-6">
-            <Button variant={"outline"} className=" font-semibold" size={"lg"}>
-              Contact
-            </Button>
+          <div className="mt-2 md:mt-4">
+            <p className=" relative w-full font-light text-white-grey text-md">
+              Contact us
+            </p>
           </div>
         </div>
       </div>

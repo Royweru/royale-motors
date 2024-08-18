@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Button, useMediaQuery } from "@relume_io/relume-ui";
+import { useMediaQuery } from "@relume_io/relume-ui";
+import { Button } from "./ui/button";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronDown } from "react-icons/rx";
@@ -37,19 +38,20 @@ export const Navbar = (props: Navbar2Props) => {
   const isMobile = useMediaQuery("(max-width: 991px)");
 
   return (
-    <nav className="flex w-full items-center border-b border-border-primary bg-background-primary lg:min-h-18 lg:px-[5%]">
-      <div className="mx-auto size-full lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4 text-blue-secondary">
+    <nav className="flex w-full items-center shadow-medium rounded-b-lg bg-blue-secondary lg:min-h-18 lg:px-[5%]">
+      <div className="mx-auto size-full lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4  text-white font-semibold">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
           <a href={logo.url}>
             <img src={logo.src} alt={logo.alt} height={60} width={60} />
           </a>
           <div className="flex items-center gap-4 lg:hidden">
             <div>
-              {buttons.map((button, index) => (
-                <Button key={index} className="w-full px-4 py-1" {...button}>
-                  {button.title}
-                </Button>
-              ))}
+              <Button
+                className=" font-semibold text-white-dark"
+                variant={"outline"}
+              >
+                Sign Up
+              </Button>
             </div>
             <button
               className="-mr-2 flex size-12 flex-col items-center justify-center"
@@ -96,7 +98,7 @@ export const Navbar = (props: Navbar2Props) => {
               ) : (
                 <a
                   href={navLink.url}
-                  className="block py-3 text-md lg:px-4 lg:py-2 lg:text-base text-blue-primary font-semibold"
+                  className="block py-3 text-md lg:px-4 lg:py-2 lg:text-base font-semibold"
                 >
                   {navLink.title}
                 </a>
@@ -105,15 +107,14 @@ export const Navbar = (props: Navbar2Props) => {
           ))}
         </motion.div>
         <div className="hidden justify-self-end lg:block">
-          {buttons.map((button, index) => (
+          <div className=" relative w-full">
             <Button
-              key={index}
-              className="px-6 py-2  font-semibold text-white-grey"
-              {...button}
+              className=" font-semibold text-white-dark"
+              variant={"outline"}
             >
-              {button.title}
+              Sign Up
             </Button>
-          ))}
+          </div>
         </div>
       </div>
     </nav>
@@ -170,7 +171,7 @@ const SubMenu = ({
               },
             }}
             transition={{ duration: 0.2 }}
-            className="bg-background-primary lg:absolute lg:z-50 lg:border
+            className=" bg-blue-secondary lg:absolute lg:z-50 lg:border
              lg:border-border-primary lg:p-2 lg:[--y-close:25%]"
           >
             {navLink.subMenuLinks?.map((subMenuLink, index) => (
@@ -203,9 +204,9 @@ export const Navbar2Defaults: Navbar2Props = {
       title: "Cars",
       url: "#",
       subMenuLinks: [
-        { title: "Link Five", url: "#" },
-        { title: "Link Six", url: "#" },
-        { title: "Link Seven", url: "#" },
+        { title: "All cars", url: "#" },
+        { title: "International Stock", url: "#" },
+        { title: "local Stock", url: "#" },
       ],
     },
   ],
