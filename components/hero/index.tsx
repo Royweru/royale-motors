@@ -1,7 +1,8 @@
 import React from "react";
 import { SearchBox } from "../search-box";
+import { Car } from "@/types";
 
-export const Hero = () => {
+export const Hero = ({ cars }: { cars: Car[] }) => {
   return (
     <div
       className='w-full bg-[url("/hero1.jpg")] md:h-[450px] h-[350px] bg-cover bg-center
@@ -14,7 +15,7 @@ export const Hero = () => {
           Get your dream car, today what are you waiting for ?
         </h2>
       </div>
-      <SearchBox />
+      <SearchBox cars={cars} />
     </div>
   );
 };

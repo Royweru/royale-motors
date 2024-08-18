@@ -14,7 +14,7 @@ export default async function Home() {
 
   return (
     <div className="  h-full relative w-full">
-      <Hero />
+      <Hero cars={cars} />
       <FinanceFeature />
       <Test />
       <Faq />
