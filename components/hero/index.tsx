@@ -10,7 +10,7 @@ export const Hero = () => {
     '
     >
       <div className=" w-full  px-6 md:px-12">
-        <h2 className=" h2 backdrop-blur-sm">
+        <h2 className=" lg:h1 h2 backdrop-blur-sm">
           Get your dream car, today what are you waiting for ?
         </h2>
       </div>

@@ -41,7 +41,7 @@ export const Navbar = (props: Navbar2Props) => {
       <div className="mx-auto size-full lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4 text-blue-secondary">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
           <a href={logo.url}>
-            <img src={logo.src} alt={logo.alt} />
+            <img src={logo.src} alt={logo.alt} height={60} width={60} />
           </a>
           <div className="flex items-center gap-4 lg:hidden">
             <div>
@@ -192,13 +192,13 @@ const SubMenu = ({
 export const Navbar2Defaults: Navbar2Props = {
   logo: {
     url: "/",
-    src: "https://relume-assets.s3.amazonaws.com/logo-image.svg",
+    src: "/logo.png",
     alt: "Logo image",
   },
   navLinks: [
-    { title: "About", url: "#" },
-    { title: "Contact", url: "#" },
-    { title: "Blog", url: "#" },
+    { title: "About", url: "/about" },
+    { title: "Contact", url: "/contact" },
+    { title: "Blog", url: "/blog" },
     {
       title: "Cars",
       url: "#",
