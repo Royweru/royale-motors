@@ -2,30 +2,42 @@ import { Car } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-export const CarCard = ({ data }: any) => {
+export const CarCard = ({ data }: { data: Car }) => {
   return (
-    <div className=" rounded-2xl p-4 px-2 drop-shadow border-2 border-gray-900 bg-slate-300 opacity-95 w-2/5">
-      <div className=" w-full relative flex flex-col gap-y-2">
-        <h2 className=" max-w-sm font-semibold text-black">
-          {data.make}, {data.model}
-        </h2>
-        <div className=" w-full relative h-[250px] ">
+    <div className=" col-span-1 lg:col-span-2 xl:col-span-2 cursor-pointer">
+      <div className=" w-full flex flex-col relative inset-0 rounded-xl gap-y-2 bg-white justify-normal mx-auto">
+        <div className=" relative w-full  h-[150px]">
           <Image
             fill
-            src={data.image}
-            alt="car"
-            className=" object-contain object-center"
+            alt=""
+            src={"/honda1.jpg"}
+            className=" object-center
+             object-cover rounded-xl"
           />
         </div>
-        <div className=" flex justify-between w-full items-center">
-          <p></p>
-          <p className=" font-light text-sm text-rose-400">
-            ${" "}
-            <span className=" text-2xl font-bold text-blue-300 ">
-              {data.price}
-            </span>
-          </p>
+        <div className=" w-full lg:px-1 px-[7px]">
+          <div className=" relative w-full flex justify-between items-center">
+            <div className=" flex flex-col ">
+              <p className=" text-sm font-light lg:text-xs text-blue-primary">
+                {data.make}
+              </p>
+              <h5 className="text text-red-secondary text-3xl lg:text-xl font-black">
+                {data.model}
+              </h5>
+            </div>
+
+            <div className=" flex justify-center items-center gap-1">
+              <p className=" text-2xl font-semibold text-blue-secondary">
+                {data.price}
+              </p>
+              <p className=" text-xs md:text-sm font-light text-black-2">
+                /only
+              </p>
+            </div>
+          </div>
         </div>
+
+        <div className=" w-full"></div>
       </div>
     </div>
   );

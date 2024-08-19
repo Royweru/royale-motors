@@ -54,6 +54,9 @@ export const SearchBox = ({ cars }: { cars: Car[] }) => {
       query: updatedQuery,
     });
     router.push(pushUrl);
+    setMake("");
+    setModel("");
+    setYear("");
   };
 
   return (
