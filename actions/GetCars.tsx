@@ -1,8 +1,8 @@
 import { Car } from "@/types";
 
 export const fetchCars = async (): Promise<Car[]> => {
-  // JavaScript Example: Fetch Single Post
-  // This function demonstrates how to fetch a single post using the Fetch API.
+  // JavaScript Example: Fetch Single car
+  // This function demonstrates how to fetch a single car using the Fetch API.
 
   const url = "https://freetestapi.com/api/v1/cars/";
   const options = {
@@ -14,10 +14,10 @@ export const fetchCars = async (): Promise<Car[]> => {
     if (!response.ok) {
       throw new Error("HTTP error! Status: " + response.status);
     }
+    const car = await response.json();
 
-    const post = await response.json();
-    return post;
+    return car;
   } catch (error) {
-    throw new Error("Error fetching single car: " + error);
+    throw new Error("Error fetching Cars: " + error);
   }
 };

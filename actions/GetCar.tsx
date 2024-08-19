@@ -13,8 +13,8 @@ export async function fetchSingleCar(carId: number) {
       throw new Error("HTTP error! Status: " + response.status);
     }
 
-    const post = await response.json();
-    return post;
+    const car = await response.json();
+    return car;
   } catch (error) {
     throw new Error("Error fetching single car: " + error);
   }

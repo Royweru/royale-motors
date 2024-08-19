@@ -1,8 +1,17 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { SearchBox } from "../search-box";
 import { Car } from "@/types";
 
 export const Hero = ({ cars }: { cars: Car[] }) => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return;
+
   return (
     <div
       className='w-full bg-[url("/hero1.jpg")] md:h-[450px] h-[350px] bg-cover bg-center
