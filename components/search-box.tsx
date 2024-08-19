@@ -64,11 +64,13 @@ export const SearchBox = ({ cars }: { cars: Car[] }) => {
     >
       <div className=" w-full gap-4 flex items-center relative">
         <select
-          className="w-full rounded-2xl text-black-1 bg-blue-accent font-semibold text-xl p-4 border-blue-secondary"
+          className="w-full rounded-2xl text-black-1 
+           bg-blue-accent font-semibold text-xl p-4 border-blue-secondary"
           value={make}
           onChange={(e) => setMake(e.target.value)}
+          defaultValue={"Select Make"}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Select Make
           </option>
           {makes.map((make) => (
@@ -81,39 +83,27 @@ export const SearchBox = ({ cars }: { cars: Car[] }) => {
             </option>
           ))}
         </select>
-        <select className=" w-full rounded-2xl text-black-1 bg-blue-accent font-semibold text-xl p-4 border-blue-secondary ">
-          <option value="Make" selected>
-            Select Make
-          </option>
-          <option value="Make" selected>
-            Audi
-          </option>
-          <option value="Make" selected>
-            Benz
-          </option>
-          <option value="Make" selected>
-            Porhse
-          </option>
-          <option value="Make" selected>
-            Lambogini
-          </option>
+        <select
+          className=" w-full rounded-2xl text-black-1
+         bg-blue-accent font-semibold text-xl p-4 border-blue-secondary "
+          defaultValue={"Select Model"}
+        >
+          <option disabled>Select Model</option>
+          <option value="Audi">Audi</option>
+          <option value="BEnz">Benz</option>
+          <option value="Porshe">Porshe</option>
+          <option value="Lamboghini">Lambogini</option>
         </select>
-        <select className=" w-full rounded-2xl text-black-1 bg-blue-accent font-semibold text-xl p-4 border-blue-secondary ">
-          <option value="Make" selected>
-            Select Make
-          </option>
-          <option value="Make" selected>
-            Audi
-          </option>
-          <option value="Make" selected>
-            Benz
-          </option>
-          <option value="Make" selected>
-            Porhse
-          </option>
-          <option value="Make" selected>
-            Lambogini
-          </option>
+        <select
+          className=" w-full rounded-2xl text-black-1
+        bg-blue-accent font-semibold text-xl p-4 border-blue-secondary "
+        >
+          <option value="Make">Year of Manufacture</option>
+          <option value="2019">2019</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
         </select>
       </div>
       <div className=" w-full px-12 md:px-24 lg:px-28">
