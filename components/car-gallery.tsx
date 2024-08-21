@@ -115,5 +115,9 @@ export const Gallery15Defaults: Gallery15Props = {
       src: "/honda3.jpg.png",
       alt: "Placeholder image 3",
     },
+    {
+      src: "/honda2.jpg.png",
+      alt: "Placeholder image 2",
+    },
   ],
 };

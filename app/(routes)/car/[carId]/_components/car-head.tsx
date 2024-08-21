@@ -19,7 +19,7 @@ export const CarHead = ({ data }: { data: Car }) => {
           <CarGallery />
           <CarProperties car={data} />
         </div>
-        <div className=" col-span-1 lg:col-span-1 sm:order-first lg:order-last lg:px-0 px-4">
+        <div className=" col-span-1 lg:col-span-1 order-first md:order-last lg:px-0 px-4">
           <Header make={data.make} model={data.model} color={data.color} />
           <CarFeatures car={data} />
         </div>

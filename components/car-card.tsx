@@ -27,7 +27,7 @@ export const CarCard = ({ data }: { data: Car }) => {
         <div className=" w-full lg:px-1 px-[7px]">
           <div className=" relative w-full flex justify-between items-center">
             <div className=" flex flex-col ">
-              <p className=" text-sm font-light lg:text-xs text-blue-primary">
+              <p className=" text-xs font-light lg:text-xs text-blue-primary">
                 {data.make}
               </p>
               <h5 className="text text-red-secondary text-3xl lg:text-xl font-black">
@@ -35,8 +35,8 @@ export const CarCard = ({ data }: { data: Car }) => {
               </h5>
             </div>
 
-            <div className=" flex justify-center items-center gap-1">
-              <p className=" text-2xl font-semibold text-blue-secondary">
+            <div className=" justify-center items-center hidden lg:flex gap-1">
+              <p className=" lg:text-2xl text-sm font-semibold text-blue-secondary">
                 {data.price}
               </p>
               <p className=" text-xs md:text-sm font-light text-black-2">
