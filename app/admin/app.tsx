@@ -13,6 +13,7 @@ import { BodyTypeCreate } from "./bodyType/create";
 import { BodyTypeList } from "./bodyType/list";
 import { CarList } from "./cars/list";
 import { CarCreate } from "./cars/create";
+import { CarEdit } from "./cars/edit";
 const App = () => {
   return (
     <Admin dataProvider={simpleRestProvider("/api")}>
@@ -45,6 +46,7 @@ const App = () => {
       <Resource
         name="cars"
         list={CarList}
+        edit={CarEdit}
         create={CarCreate}
         recordRepresentation={"makeId"}
       />

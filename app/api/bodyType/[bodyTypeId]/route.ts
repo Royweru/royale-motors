@@ -2,12 +2,12 @@ import db from "@/lib/prisma";
 import { NextResponse } from "next/server";
 export async function GET(
   req: Request,
-  { params }: { params: { modelId: string } }
+  { params }: { params: { bodyTypeId: string } }
 ) {
   try {
-    const response = await db.model.findUnique({
+    const response = await db.type.findUnique({
       where: {
-        id: params.modelId,
+        id: params.bodyTypeId,
       },
     });
     return NextResponse.json(response);
@@ -19,14 +19,14 @@ export async function GET(
 
 export async function PUT(
   req: Request,
-  { params }: { params: { modelId: string } }
+  { params }: { params: { bodyTypeId: string } }
 ) {
   const body = await req.json();
 
   try {
-    const response = await db.model.update({
+    const response = await db.type.update({
       where: {
-        id: params.modelId,
+        id: params.bodyTypeId,
       },
       data: { ...body },
     });
@@ -38,16 +38,16 @@ export async function PUT(
   }
 }
 
-export async function DELETE({ params }: { params: { modelId: string } }) {
+export async function DELETE({ params }: { params: { bodyTypeId: string } }) {
   try {
-    const response = await db.model.delete({
+    const response = await db.type.delete({
       where: {
-        id: params.modelId,
+        id: params.bodyTypeId,
       },
     });
     return NextResponse.json(response);
   } catch (error) {
-    console.log("MODEL_DELETE", error);
+    console.log("type_DELETE", error);
     return new NextResponse("Internal server error", { status: 500 });
   }
 }

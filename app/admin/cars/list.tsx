@@ -17,7 +17,6 @@ export const CarList = () => {
         <ReferenceField source="categoryId" reference="category" />
         <ReferenceField source="modelId" reference="model" />
 
-        <ArrayField source="images" label="Images" />
         <ArrayField source="features" label="Features" />
 
         <TextField source="color" label="Color" />

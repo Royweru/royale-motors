@@ -2,12 +2,12 @@ import db from "@/lib/prisma";
 import { NextResponse } from "next/server";
 export async function GET(
   req: Request,
-  { params }: { params: { modelId: string } }
+  { params }: { params: { makeId: string } }
 ) {
   try {
-    const response = await db.model.findUnique({
+    const response = await db.make.findUnique({
       where: {
-        id: params.modelId,
+        id: params.makeId,
       },
     });
     return NextResponse.json(response);
@@ -19,14 +19,14 @@ export async function GET(
 
 export async function PUT(
   req: Request,
-  { params }: { params: { modelId: string } }
+  { params }: { params: { makeId: string } }
 ) {
   const body = await req.json();
 
   try {
-    const response = await db.model.update({
+    const response = await db.make.update({
       where: {
-        id: params.modelId,
+        id: params.makeId,
       },
       data: { ...body },
     });
@@ -38,16 +38,16 @@ export async function PUT(
   }
 }
 
-export async function DELETE({ params }: { params: { modelId: string } }) {
+export async function DELETE({ params }: { params: { makeId: string } }) {
   try {
-    const response = await db.model.delete({
+    const response = await db.make.delete({
       where: {
-        id: params.modelId,
+        id: params.makeId,
       },
     });
     return NextResponse.json(response);
   } catch (error) {
-    console.log("MODEL_DELETE", error);
+    console.log("make_DELETE", error);
     return new NextResponse("Internal server error", { status: 500 });
   }
 }
