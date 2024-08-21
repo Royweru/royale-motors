@@ -1,3 +1,4 @@
+"use client";
 import { FaXTwitter } from "react-icons/fa6";
 import {
   BiLogoFacebookCircle,
@@ -5,6 +6,7 @@ import {
   BiLogoLinkedinSquare,
   BiLogoYoutube,
 } from "react-icons/bi";
+import { usePathname } from "next/navigation";
 
 type ImageProps = {
   url?: string;
@@ -47,8 +49,13 @@ export const Footer = (props: Footer4Props) => {
     ...Footer4Defaults,
     ...props,
   } as Props;
+  const pathName = usePathname();
+  const adminPath = pathName === "/admin";
   return (
-    <footer className="px-[5%] bg-blue-secondary  lg:py-8 md:py-6 py-4 rounded-t-xl ">
+    <footer
+      className={`px-[5%] bg-blue-secondary  lg:py-8 md:py-6 py-4 rounded-t-xl
+        ${adminPath && "hidden"}`}
+    >
       <div className="container">
         <div className="grid grid-cols-1 items-center justify-center justify-items-center gap-x-[4vw] gap-y-8 pb-12 md:pb-18 lg:grid-cols-[0.25fr_1fr_0.25fr] lg:justify-between lg:gap-y-4 lg:pb-20">
           <a href={logo.url} className="lg:justify-self-start">

@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { AnimatePresence, motion } from "framer-motion";
 import { RxChevronDown } from "react-icons/rx";
+import { usePathname } from "next/navigation";
 
 type ImageProps = {
   url?: string;
@@ -33,12 +34,17 @@ export const Navbar = (props: Navbar2Props) => {
     ...Navbar2Defaults,
     ...props,
   } as Props;
-
+  const pathName = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 991px)");
 
+  const adminPath = pathName === "/admin";
+
   return (
-    <nav className="flex w-full items-center shadow-medium rounded-b-lg bg-blue-secondary lg:min-h-18 lg:px-[5%]">
+    <nav
+      className={`flex w-full items-center shadow-medium rounded-b-lg bg-blue-secondary lg:min-h-18
+     lg:px-[5%] ${adminPath && "hidden"}`}
+    >
       <div className="mx-auto size-full lg:grid lg:grid-cols-[0.375fr_1fr_0.375fr] lg:items-center lg:justify-between lg:gap-4  text-white font-semibold">
         <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
           <a href={logo.url}>
