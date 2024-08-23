@@ -7,6 +7,7 @@ import { Test } from "@/components/feature/test";
 
 const CarIdPage = async ({ params }: { params: { carId: number } }) => {
   const car = await fetchSingleCar(params.carId);
+
   return (
     <div className=" w-full h-full flex flex-col items-center justify-center">
       <CarHead data={car} />

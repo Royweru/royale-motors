@@ -1,9 +1,19 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { SearchBox } from "../search-box";
-import { Car } from "@/types";
 
-export const Hero = ({ cars }: { cars: Car[] }) => {
+import { CarType } from "@/types";
+import { Make, Model, Type } from "@prisma/client";
+
+export const Hero = ({
+  models,
+  makes,
+  bodyTypes,
+}: {
+  models: Model[];
+  makes: Make[];
+  bodyTypes: Type[];
+}) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -20,11 +30,11 @@ export const Hero = ({ cars }: { cars: Car[] }) => {
     '
     >
       <div className=" w-full  px-6 md:px-12">
-        <h2 className=" lg:h1 h2 backdrop-blur-sm">
+        <h2 className="lg:h2 h1 text-white">
           Get your dream car, today what are you waiting for ?
         </h2>
       </div>
-      <SearchBox cars={cars} />
+      <SearchBox models={models} makes={makes} bodyTypes={bodyTypes} />
     </div>
   );
 };

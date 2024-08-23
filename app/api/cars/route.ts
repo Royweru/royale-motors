@@ -2,7 +2,16 @@ import db from "@/lib/prisma";
 import { NextResponse } from "next/server";
 export async function GET(req: Request) {
   try {
-    const response = await db.car.findMany();
+    const response = await db.car.findMany({
+      include: {
+        make: true,
+        model: true,
+        type: true,
+        category: true,
+        images: true,
+        features: true,
+      },
+    });
     return NextResponse.json(response);
   } catch (error) {
     console.error(error);

@@ -2,7 +2,11 @@ import db from "@/lib/prisma";
 import { NextResponse } from "next/server";
 export async function GET(req: Request) {
   try {
-    const response = await db.make.findMany();
+    const response = await db.make.findMany({
+      include: {
+        models: true,
+      },
+    });
     return NextResponse.json(response);
   } catch (error) {
     console.error(error);

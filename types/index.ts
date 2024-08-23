@@ -1,16 +1,43 @@
-export type Car = {
-  id: number;
-  make: string;
-  model: string;
-  year: number;
+import {
+  Category,
+  Feature,
+  Image as ImageType,
+  Make,
+  Model,
+  Type,
+  Car,
+} from "@prisma/client";
+
+export interface CarType {
+  id: string;
+  make: Make;
+  makeId: string;
+  modelId: string;
+  categoryId: string;
+  typeId: string;
+  model: Model;
+  category: Category;
+  features: Feature[];
+  type: Type;
   color: string;
-  mileage: number;
+  drive: string;
+  rentalPrice: number;
   price: number;
+  HP: number;
+  location: string;
   fuelType: string;
-  transmission: string;
-  engine: string;
-  horsepower: number;
-  features: string[];
-  owners: number;
-  image: string;
-};
+  engineSize: string;
+  acceleration: number;
+  year: string;
+  mileage: number;
+  transmision: string;
+  isAvailable: boolean;
+  isFeatured: boolean;
+  images: ImageType[];
+  updatedAt: Date;
+  createdAt: Date;
+}
+
+// export interface CarType{
+
+// }

@@ -57,7 +57,7 @@ export const Footer = (props: Footer4Props) => {
         ${adminPath && "hidden"}`}
     >
       <div className="container">
-        <div className="grid grid-cols-1 items-center justify-center justify-items-center gap-x-[4vw] gap-y-8 pb-12 md:pb-18 lg:grid-cols-[0.25fr_1fr_0.25fr] lg:justify-between lg:gap-y-4 lg:pb-20">
+        <div className="grid grid-cols-1 items-center justify-center justify-items-center gap-x-[4vw] gap-y-8 pb-4 md:pb-18 lg:grid-cols-[0.25fr_1fr_0.25fr] lg:justify-between lg:gap-y-4 lg:pb-20">
           <a href={logo.url} className="lg:justify-self-start">
             <img
               src={logo.src}
@@ -79,7 +79,7 @@ export const Footer = (props: Footer4Props) => {
               ))}
             </ul>
           ))}
-          <div className="flex items-start justify-start justify-items-center gap-x-3 lg:justify-self-end">
+          <div className="flex items-start justify-start justify-items-center text-black-1 gap-x-3 lg:justify-self-end">
             {socialMediaLinks.map((link, index) => (
               <a key={index} href={link.url}>
                 {link.icon}
@@ -126,8 +126,6 @@ export const Footer4Defaults: Footer4Props = {
     { url: "#", icon: <BiLogoFacebookCircle className="size-6" /> },
     { url: "#", icon: <BiLogoInstagram className="size-6" /> },
     { url: "#", icon: <FaXTwitter className="size-6 p-0.5" /> },
-    { url: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
-    { url: "#", icon: <BiLogoYoutube className="size-6" /> },
   ],
   footerText: "© 2024 Royale Cars. All rights reserved.",
   footerLinks: [

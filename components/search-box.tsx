@@ -3,12 +3,21 @@
 import React, { useState } from "react";
 import { Button } from "./ui/button";
 
-import { Car } from "@/types";
+import { CarType } from "@/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 import { YOM } from "@/constants";
+import { Model, Make, Type } from "@prisma/client";
 
-export const SearchBox = ({ cars }: { cars: Car[] }) => {
+export const SearchBox = ({
+  makes,
+  models,
+  bodyTypes,
+}: {
+  models: Model[];
+  makes: Make[];
+  bodyTypes: Type[];
+}) => {
   const [make, setMake] = useState("");
   const [model, setModel] = useState("");
   const [year, setYear] = useState("");
@@ -77,10 +86,10 @@ export const SearchBox = ({ cars }: { cars: Car[] }) => {
           <option value="" disabled>
             Select Make
           </option>
-          {cars.map((car) => (
-            <option value={car.make} key={car.id}>
+          {makes.map((make) => (
+            <option value={make.id} key={make.id}>
               <div className=" relative w-full font-bold text-sm text-black">
-                {car.make}
+                {make.name}
               </div>
             </option>
           ))}
@@ -93,10 +102,10 @@ export const SearchBox = ({ cars }: { cars: Car[] }) => {
           onChange={(e) => setModel(e.target.value)}
         >
           <option disabled>Select Model</option>
-          {cars.map((car) => (
-            <option value={car.model} key={car.id}>
+          {models.map((model) => (
+            <option value={model.id} key={model.id}>
               <div className=" relative w-full font-bold text-sm text-black">
-                {car.model}
+                {model.name}
               </div>
             </option>
           ))}
