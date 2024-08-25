@@ -41,3 +41,10 @@ export interface CarType {
 // export interface CarType{
 
 // }
+
+export type MakeType = {
+  name: string;
+  id: string;
+  logo: string;
+  models: Model[];
+};

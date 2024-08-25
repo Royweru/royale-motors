@@ -54,7 +54,15 @@ export const Body = ({
           className=" object-contain object-center"
         />
       </div>
-      <p className=" text-center w-full relative text-txt-accent">{label}</p>
+      <p
+        className=" 
+         text-center
+         w-full
+         relative
+         text-txt-accent"
+      >
+        {label}
+      </p>
     </div>
   );
 };

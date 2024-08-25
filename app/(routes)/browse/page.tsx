@@ -20,7 +20,7 @@ const BrowsePage = async () => {
       <Hero models={models} makes={makes} bodyTypes={bodyTypes} />
       <BodyFilter />
       <CheckFinance />
-      <SearchHeader models={models} makes={makes} />
+      <SearchHeader models={models} makes={makes} bodyTypes={bodyTypes} />
       <CarDisplay cars={cars} />
       <Test />
     </div>

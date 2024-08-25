@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
-import { CarType } from "@/types";
+import { CarType, MakeType } from "@/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import qs from "query-string";
 import { YOM } from "@/constants";
@@ -15,16 +15,22 @@ export const SearchBox = ({
   bodyTypes,
 }: {
   models: Model[];
-  makes: Make[];
+  makes: MakeType[];
   bodyTypes: Type[];
 }) => {
-  const [make, setMake] = useState("");
+  const [makeId, setMakeId] = useState("");
+  const [selectedModels, setSelectedModels] = useState<Model[]>([]);
   const [model, setModel] = useState("");
   const [year, setYear] = useState("");
 
   const params = useSearchParams();
   const router = useRouter();
 
+  useEffect(() => {
+    const selectedMake = makes.find((make) => make.id === makeId);
+    const makeModels = selectedMake?.models;
+    setSelectedModels(makeModels || []);
+  }, []);
   //   const handleClick = useCallback(() => {
   //     let currentQuery = {};
   //     if (params) {
@@ -54,16 +60,19 @@ export const SearchBox = ({
     }
     const updatedQuery = {
       ...currentQuery,
-      make,
+      make: makeId,
       model,
       year,
     };
-    const pushUrl = qs.stringifyUrl({
-      url: `${window.location.href}browse`,
-      query: updatedQuery,
-    });
+    const pushUrl = qs.stringifyUrl(
+      {
+        url: `${window.location.href}browse`,
+        query: updatedQuery,
+      },
+      { skipNull: true }
+    );
     router.push(pushUrl);
-    setMake("");
+    setMakeId("");
     setModel("");
     setYear("");
   };
@@ -79,8 +88,8 @@ export const SearchBox = ({
           className="w-full rounded-2xl text-black-1 
            bg-blue-accent font-semibold text-xl  p-4
             border-blue-secondary "
-          value={make}
-          onChange={(e) => setMake(e.target.value)}
+          value={makeId}
+          onChange={(e) => setMakeId(e.target.value)}
           defaultValue={"Select Make"}
         >
           <option value="" disabled>
@@ -102,7 +111,7 @@ export const SearchBox = ({
           onChange={(e) => setModel(e.target.value)}
         >
           <option disabled>Select Model</option>
-          {models.map((model) => (
+          {selectedModels?.map((model) => (
             <option value={model.id} key={model.id}>
               <div className=" relative w-full font-bold text-sm text-black">
                 {model.name}
