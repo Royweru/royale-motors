@@ -10,8 +10,16 @@ import { fetchModels } from "@/actions/GetModels";
 import { fetchMakes } from "@/actions/GetMakes";
 import { fetchTypes } from "@/actions/GetTypes";
 
-const BrowsePage = async () => {
-  const cars = await fetchCars();
+interface props {
+  searchParams: {
+    typeId?: string;
+    makeId?: string;
+    modelId?: string;
+    year?: string;
+  };
+}
+const BrowsePage = async ({ searchParams }: props) => {
+  const cars = await fetchCars(searchParams);
   const models = await fetchModels();
   const makes = await fetchMakes();
   const bodyTypes = await fetchTypes();

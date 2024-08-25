@@ -20,7 +20,7 @@ export const SearchBox = ({
 }) => {
   const [makeId, setMakeId] = useState("");
   const [selectedModels, setSelectedModels] = useState<Model[]>([]);
-  const [model, setModel] = useState("");
+  const [modelId, setModelId] = useState("");
   const [year, setYear] = useState("");
 
   const params = useSearchParams();
@@ -30,7 +30,8 @@ export const SearchBox = ({
     const selectedMake = makes.find((make) => make.id === makeId);
     const makeModels = selectedMake?.models;
     setSelectedModels(makeModels || []);
-  }, []);
+  }, [makeId, makes]);
+
   //   const handleClick = useCallback(() => {
   //     let currentQuery = {};
   //     if (params) {
@@ -60,8 +61,8 @@ export const SearchBox = ({
     }
     const updatedQuery = {
       ...currentQuery,
-      make: makeId,
-      model,
+      makeId,
+      modelId,
       year,
     };
     const pushUrl = qs.stringifyUrl(
@@ -73,7 +74,7 @@ export const SearchBox = ({
     );
     router.push(pushUrl);
     setMakeId("");
-    setModel("");
+    setModelId("");
     setYear("");
   };
 
@@ -107,10 +108,12 @@ export const SearchBox = ({
           className=" w-full rounded-2xl text-black-1
          bg-blue-accent font-semibold text-xl p-4 border-blue-secondary "
           defaultValue={"Select Model"}
-          value={model}
-          onChange={(e) => setModel(e.target.value)}
+          value={modelId}
+          onChange={(e) => setModelId(e.target.value)}
         >
-          <option disabled>Select Model</option>
+          <option disabled selected>
+            Select Model
+          </option>
           {selectedModels?.map((model) => (
             <option value={model.id} key={model.id}>
               <div className=" relative w-full font-bold text-sm text-black">
