@@ -1,8 +1,8 @@
-import { Car } from "@/types";
+import { CarType } from "@/types";
 import React from "react";
 import { CarCard } from "./car-card";
 
-export const CarDisplay = ({ cars }: { cars: Car[] }) => {
+export const CarDisplay = ({ cars }: { cars: CarType[] }) => {
   return (
     <div className=" container relative">
       <div

@@ -9,6 +9,6 @@ export const fetchCategories = async (): Promise<Category[]> => {
     const response = await axios.get("http://localhost:3000/api/category");
     return response.data;
   } catch (error) {
-    throw new Error("Error fetching Cars: " + error);
+    throw new Error("Error fetching Categories: " + error);
   }
 };

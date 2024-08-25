@@ -1,8 +1,11 @@
 import { bodyTypes } from "@/constants";
 import { Body } from "./body";
 import React from "react";
+import { fetchTypes } from "@/actions/GetTypes";
 
-export const BodyFilter = () => {
+export const BodyFilter = async () => {
+  const bodyTypes = await fetchTypes();
+
   return (
     <div className=" relative w-full  mx-auto flex flex-col items-center justify-between py-4 md:py-6 lg:py-10">
       <div className=" max-w-md">
@@ -15,8 +18,8 @@ export const BodyFilter = () => {
           <Body
             key={body.id}
             id={body.id}
-            imgSrc={body.imgSrc}
-            label={body.label}
+            imgSrc={body.image}
+            label={body.name}
           />
         ))}
       </div>

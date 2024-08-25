@@ -1,12 +1,12 @@
 "use client";
 
-import { Car } from "@/types";
+import { CarType } from "@/types";
 import Image from "next/image";
 import React from "react";
 import { CarCardExtras } from "./car-card-extras";
 import { useRouter } from "next/navigation";
 
-export const CarCard = ({ data }: { data: Car }) => {
+export const CarCard = ({ data }: { data: CarType }) => {
   const router = useRouter();
   return (
     <div
@@ -16,22 +16,20 @@ export const CarCard = ({ data }: { data: Car }) => {
     >
       <div className=" w-full flex flex-col relative inset-0 rounded-xl gap-y-2 bg-white justify-normal mx-auto">
         <div className=" relative w-full  h-[150px]">
-          <Image
-            fill
+          <img
+            src={data.images[0]?.url || "/honda1.jpg"}
             alt=""
-            src={"/honda1.jpg"}
-            className=" object-center
-             object-cover rounded-xl group-hover:scale-105"
+            className=" object-cover object-center h-[150px] w-full rounded-xl"
           />
         </div>
         <div className=" w-full lg:px-1 px-[7px]">
           <div className=" relative w-full flex justify-between items-center">
             <div className=" flex flex-col ">
               <p className=" text-xs font-light lg:text-xs text-blue-primary">
-                {data.make}
+                {data.make.name}
               </p>
               <h5 className="text text-red-secondary text-3xl lg:text-xl font-black">
-                {data.model}
+                {data.model.name}
               </h5>
             </div>
 

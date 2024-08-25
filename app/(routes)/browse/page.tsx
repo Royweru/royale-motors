@@ -6,16 +6,21 @@ import { BodyFilter } from "./_components/body-filter";
 import { SearchHeader } from "./_components/search-header";
 import { CarDisplay } from "@/components/car-display";
 import { Test } from "@/components/feature/test";
+import { fetchModels } from "@/actions/GetModels";
+import { fetchMakes } from "@/actions/GetMakes";
+import { fetchTypes } from "@/actions/GetTypes";
 
 const BrowsePage = async () => {
   const cars = await fetchCars();
+  const models = await fetchModels();
+  const makes = await fetchMakes();
+  const bodyTypes = await fetchTypes();
   return (
     <div className=" w-full h-full">
-      <Hero cars={cars} />
+      <Hero models={models} makes={makes} bodyTypes={bodyTypes} />
       <BodyFilter />
-
       <CheckFinance />
-      <SearchHeader />
+      <SearchHeader models={models} makes={makes} />
       <CarDisplay cars={cars} />
       <Test />
     </div>

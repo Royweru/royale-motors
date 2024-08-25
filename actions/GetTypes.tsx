@@ -6,9 +6,9 @@ export const fetchTypes = async (): Promise<Type[]> => {
   // This function demonstrates how to fetch a single car using the Fetch API.
 
   try {
-    const response = await axios.get("http://localhost:3000/api/type");
+    const response = await axios.get("http://localhost:3000/api/bodyType");
     return response.data;
   } catch (error) {
-    throw new Error("Error fetching Cars: " + error);
+    throw new Error("Error fetching Body types" + error);
   }
 };

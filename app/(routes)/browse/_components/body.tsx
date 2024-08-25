@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import qs from "query-string";
+import { useRouter, useSearchParams } from "next/navigation";
+import React, { useState } from "react";
 
 export const Body = ({
   imgSrc,
@@ -8,11 +10,39 @@ export const Body = ({
   id,
 }: {
   label: string;
-  id: number;
+  id: string;
   imgSrc: string;
 }) => {
+  const router = useRouter();
+  const [typeId, setTypeId] = useState("");
+  const params = useSearchParams();
+  const onSearch = (id: string) => {
+    let query = {};
+    if (params) {
+      query = qs.parse(params.toString());
+    }
+    const updatedQuery: any = {
+      ...query,
+      typeId: id,
+    };
+    if (params?.get("typeId") === typeId) {
+      delete updatedQuery.typeId;
+    }
+    const pushUrl = qs.stringifyUrl(
+      {
+        url: window.location.href,
+        query: updatedQuery,
+      },
+      { skipNull: true }
+    );
+
+    router.push(pushUrl);
+  };
   return (
-    <div className=" flex flex-col gap-y-1 font-bold">
+    <div
+      className=" flex flex-col gap-y-1 font-bold"
+      onClick={() => onSearch(id)}
+    >
       <div
         className=" w-[100px] h-[100px] relative hover:opacity-75 
     cursor-pointer "

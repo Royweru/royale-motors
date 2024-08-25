@@ -9,6 +9,6 @@ export const fetchModels = async (): Promise<Model[]> => {
     const response = await axios.get("http://localhost:3000/api/model");
     return response.data;
   } catch (error) {
-    throw new Error("Error fetching Cars: " + error);
+    throw new Error("Error fetching Models " + error);
   }
 };

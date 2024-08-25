@@ -9,6 +9,6 @@ export const fetchMakes = async (): Promise<Make[]> => {
     const response = await axios.get("http://localhost:3000/api/make");
     return response.data;
   } catch (error) {
-    throw new Error("Error fetching Cars: " + error);
+    throw new Error("Error fetching Makes: " + error);
   }
 };

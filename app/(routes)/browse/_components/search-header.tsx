@@ -1,11 +1,23 @@
 "use client";
+import { fetchMakes } from "@/actions/GetMakes";
+import { fetchModels } from "@/actions/GetModels";
+import { Make, Model } from "@prisma/client";
 import { useSearchParams } from "next/navigation";
 import qs from "query-string";
 import React, { useEffect, useState } from "react";
 
-export const SearchHeader = () => {
+export const SearchHeader = async ({
+  makes,
+  models,
+}: {
+  makes: Make[];
+  models: Model[];
+}) => {
   const params = useSearchParams();
   const unstructuredUrl = qs.parse(params.toString());
+
+  const make = makes.find((make) => make.id === unstructuredUrl.make);
+  const model = models.find((model) => model.id === unstructuredUrl.model);
 
   return (
     <div className="  container ">
@@ -19,7 +31,7 @@ export const SearchHeader = () => {
           {unstructuredUrl.make && (
             <div className=" py-2 px-7 lg:px-12 lg:py-3 bg-white rounded-2xl">
               <p className=" font-semibold text-sm lg:text-xl text-red-secondary">
-                {unstructuredUrl.make ? unstructuredUrl.make : "Make"}
+                {make?.name}
               </p>
             </div>
           )}
@@ -27,7 +39,7 @@ export const SearchHeader = () => {
           {unstructuredUrl.model && (
             <div className=" py-2 px-7 lg:px-12 lg:py-3 bg-white rounded-2xl">
               <p className=" font-semibold text-sm lg:text-xl text-red-secondary">
-                {unstructuredUrl.model ? unstructuredUrl.model : "Make"}
+                {model?.name}
               </p>
             </div>
           )}
