@@ -12,23 +12,24 @@ interface Query {
 export const fetchCars = async (query: Query): Promise<Car[]> => {
   const stringifiedUrl = qs.stringifyUrl(
     {
-      url: `${window.location.href}api/cars`,
+      url: "http://localhost:3000/api/cars",
       query: {
-        makeId: query.makeId,
-        modelId: query.modelId,
-        year: query.year,
-        typeId: query.typeId,
+        makeId: query?.makeId,
+        modelId: query?.modelId,
+        year: query?.year,
+        typeId: query?.typeId,
       },
     },
-    { skipNull: true }
+    { skipNull: true, skipEmptyString: true }
   );
 
   try {
-    const response = await axios.get(stringifiedUrl);
-    if (response.status === 200) {
-      console.log(response.data);
-    }
-    return response.data;
+    const response = await fetch(stringifiedUrl, {
+      next: { revalidate: 30 },
+    });
+    if (!response.ok)
+      throw new Error("Oopsy the data could not be fetched properly");
+    return response.json();
   } catch (error) {
     throw new Error("Error fetching Cars: " + error);
   }

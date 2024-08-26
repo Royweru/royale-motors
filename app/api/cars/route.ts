@@ -1,8 +1,20 @@
 import db from "@/lib/prisma";
 import { NextResponse } from "next/server";
 export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url);
+  const year = searchParams.get("year") || undefined;
+  const makeId = searchParams.get("makeId") || undefined;
+  const modelId = searchParams.get("modelId") || undefined;
+  const typeId = searchParams.get("typeId") || undefined;
   try {
     const response = await db.car.findMany({
+      where: {
+        makeId,
+        modelId,
+        typeId,
+        year,
+        isAvailable: true,
+      },
       include: {
         make: true,
         model: true,

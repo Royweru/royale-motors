@@ -12,8 +12,8 @@ import type { CarouselApi } from "@relume_io/relume-ui";
 import clsx from "clsx";
 
 type ImageProps = {
-  src: string;
-  alt?: string;
+  url: string;
+  id: string;
 };
 
 type Props = {
@@ -66,8 +66,8 @@ export const CarGallery = (props: Gallery15Props) => {
                   <CarouselItem key={index} className="px-0 md:px-16 lg:px-28">
                     <div className="relative w-full pt-[66.66%]">
                       <img
-                        src={image.src}
-                        alt={image.alt}
+                        src={image.url}
+                        alt={image.url}
                         className="absolute inset-0 size-full object-cover"
                       />
                     </div>
@@ -102,22 +102,4 @@ export const CarGallery = (props: Gallery15Props) => {
 export const Gallery15Defaults: Gallery15Props = {
   heading: " Gallery",
   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  images: [
-    {
-      src: "/honda1.jpg.png",
-      alt: "Placeholder image 1",
-    },
-    {
-      src: "/honda2.jpg.png",
-      alt: "Placeholder image 2",
-    },
-    {
-      src: "/honda3.jpg.png",
-      alt: "Placeholder image 3",
-    },
-    {
-      src: "/honda2.jpg.png",
-      alt: "Placeholder image 2",
-    },
-  ],
 };

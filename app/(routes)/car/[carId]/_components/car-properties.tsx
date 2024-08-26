@@ -1,7 +1,7 @@
-import { Car } from "@/types";
+import { CarType } from "@/types";
 import React from "react";
 
-export const CarProperties = ({ car }: { car: Car }) => {
+export const CarProperties = ({ car }: { car: CarType }) => {
   return (
     <div
       className=" rounded-3xl bg-white-dark shadow-medium 
@@ -26,20 +26,36 @@ export const CarProperties = ({ car }: { car: Car }) => {
       </div>
       <div className=" flex gap-x-4 items-center">
         <h5 className=" text-md  text-red-secondary">Horsepower:</h5>
-        <p className="text-md md:text-lg text-black-1 font-bold">
-          {car.horsepower}
-        </p>
+        <p className="text-md md:text-lg text-black-1 font-bold">{car.HP}</p>
       </div>
-      <div className=" flex gap-x-4 items-center">
+      {/* <div className=" flex gap-x-4 items-center">
         <h5 className=" text-md  text-red-secondary">Transimission:</h5>
         <p className="text-md md:text-lg text-black-1 font-bold">
-          {car.transmission}
+          {car.transmision}
+        </p>
+      </div> */}
+      <div className=" flex gap-x-4 items-center">
+        <h5 className=" text-md  text-red-secondary">Drive :</h5>
+        <p className="text-md md:text-lg text-black-1 font-bold">{car.drive}</p>
+      </div>
+      <div className=" flex gap-x-4 items-center">
+        <h5 className=" text-md  text-red-secondary">
+          Acceleration(0-100 Km/hr) :
+        </h5>
+        <p className="text-md md:text-lg text-black-1 font-bold">
+          {car.acceleration}
         </p>
       </div>
       <div className=" flex gap-x-4 items-center">
-        <h5 className=" text-md  text-red-secondary">Owners :</h5>
+        <h5 className=" text-md  text-red-secondary">Engine size</h5>
         <p className="text-md md:text-lg text-black-1 font-bold">
-          {car.mileage}
+          {car.engineSize}
+        </p>
+      </div>
+      <div className=" flex gap-x-4 items-center">
+        <h5 className=" text-md  text-red-secondary">Fuel Type</h5>
+        <p className="text-md md:text-lg text-black-1 font-bold">
+          {car.fuelType}
         </p>
       </div>
     </div>
