@@ -38,7 +38,10 @@ export async function PUT(
   }
 }
 
-export async function DELETE({ params }: { params: { makeId: string } }) {
+export async function DELETE(
+  req: Request,
+  { params }: { params: { makeId: string } }
+) {
   try {
     const response = await db.make.delete({
       where: {

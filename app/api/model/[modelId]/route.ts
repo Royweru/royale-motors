@@ -38,7 +38,10 @@ export async function PUT(
   }
 }
 
-export async function DELETE({ params }: { params: { modelId: string } }) {
+export async function DELETE(
+  req: Request,
+  { params }: { params: { modelId: string } }
+) {
   try {
     const response = await db.model.delete({
       where: {

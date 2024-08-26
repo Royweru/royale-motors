@@ -96,7 +96,10 @@ export async function PUT(
   }
 }
 
-export async function DELETE({ params }: { params: { carId: string } }) {
+export async function DELETE(
+  req: Request,
+  { params }: { params: { carId: string } }
+) {
   try {
     const response = await db.car.delete({
       where: {
