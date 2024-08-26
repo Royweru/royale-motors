@@ -1,5 +1,5 @@
 import db from "@/lib/prisma";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 export async function GET(
   req: Request,
   { params }: { params: { bodyTypeId: string } }
@@ -38,7 +38,10 @@ export async function PUT(
   }
 }
 
-export async function DELETE({ params }: { params: { bodyTypeId: string } }) {
+export async function DELETE(
+  req: Request,
+  { params }: { params: { bodyTypeId: string } }
+) {
   try {
     const response = await db.type.delete({
       where: {
