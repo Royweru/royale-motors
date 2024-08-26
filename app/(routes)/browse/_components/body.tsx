@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import qs from "query-string";
-import { useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
 export const Body = ({
@@ -14,8 +14,13 @@ export const Body = ({
   imgSrc: string;
 }) => {
   const router = useRouter();
+  const pathName = usePathname();
   const [typeId, setTypeId] = useState("");
   const params = useSearchParams();
+  const URL =
+    pathName === "/"
+      ? `${window.location.href}browse`
+      : `${window.location.href}`;
   const onSearch = (id: string) => {
     let query = {};
     if (params) {
@@ -30,7 +35,7 @@ export const Body = ({
     }
     const pushUrl = qs.stringifyUrl(
       {
-        url: window.location.href,
+        url: URL,
         query: updatedQuery,
       },
       { skipNull: true }

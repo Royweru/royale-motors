@@ -1,7 +1,8 @@
+import { MakeType } from "@/types";
 import { Make } from "@prisma/client";
 import axios from "axios";
 
-export const fetchMakes = async (): Promise<Make[]> => {
+export const fetchMakes = async (): Promise<MakeType[]> => {
   // JavaScript Example: Fetch Single car
   // This function demonstrates how to fetch a single car using the Fetch API.
 

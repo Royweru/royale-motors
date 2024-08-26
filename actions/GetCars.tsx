@@ -1,3 +1,4 @@
+import { CarType } from "@/types";
 import { Car } from "@prisma/client";
 import axios from "axios";
 import qs from "query-string";
@@ -9,7 +10,7 @@ interface Query {
   typeId?: string;
 }
 
-export const fetchCars = async (query: Query): Promise<Car[]> => {
+export const fetchCars = async (query: Query): Promise<CarType[]> => {
   const stringifiedUrl = qs.stringifyUrl(
     {
       url: "http://localhost:3000/api/cars",

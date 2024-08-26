@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { SearchBox } from "../search-box";
 
-import { CarType } from "@/types";
+import { CarType, MakeType } from "@/types";
 import { Make, Model, Type } from "@prisma/client";
 
 export const Hero = ({
@@ -11,7 +11,7 @@ export const Hero = ({
   bodyTypes,
 }: {
   models: Model[];
-  makes: Make[];
+  makes: MakeType[];
   bodyTypes: Type[];
 }) => {
   const [isMounted, setIsMounted] = useState(false);
@@ -30,8 +30,8 @@ export const Hero = ({
     '
     >
       <div className=" w-full  px-6 md:px-12">
-        <h2 className="lg:h2 h1 text-white">
-          Get your dream car, today what are you waiting for ?
+        <h2 className=" lg:h1 h2 text-white">
+          Get your dream car today, what are you waiting for ?
         </h2>
       </div>
       <SearchBox models={models} makes={makes} bodyTypes={bodyTypes} />

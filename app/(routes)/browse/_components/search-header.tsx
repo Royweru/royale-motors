@@ -18,8 +18,8 @@ export const SearchHeader = ({
   const params = useSearchParams();
   const unstructuredUrl = qs.parse(params.toString());
 
-  const make = makes.find((make) => make.id === unstructuredUrl.make);
-  const model = models.find((model) => model.id === unstructuredUrl.model);
+  const make = makes.find((make) => make.id === unstructuredUrl.makeId);
+  const model = models.find((model) => model.id === unstructuredUrl.modelId);
   const bodyType = bodyTypes.find((type) => type.id === unstructuredUrl.typeId);
 
   return (
@@ -31,7 +31,7 @@ export const SearchHeader = ({
           </h5>
         </div>
         <div className=" w-full flex px-20 md:px-24 lg:px-30 flex-wrap justify-evenly  gap-7 ">
-          {unstructuredUrl.make && (
+          {unstructuredUrl.makeId && (
             <div className=" py-2 px-7 lg:px-12 lg:py-3 bg-white rounded-2xl">
               <p className=" font-semibold text-sm lg:text-xl text-red-secondary">
                 {make?.name}
@@ -39,7 +39,7 @@ export const SearchHeader = ({
             </div>
           )}
 
-          {unstructuredUrl.model && (
+          {unstructuredUrl.modelId && (
             <div className=" py-2 px-7 lg:px-12 lg:py-3 bg-white rounded-2xl">
               <p className=" font-semibold text-sm lg:text-xl text-red-secondary">
                 {model?.name}
