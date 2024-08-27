@@ -1,8 +1,8 @@
-import { Car } from "@/types";
+import { CarType } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-export const CarCardExtras = ({ car }: { car: Car }) => {
+export const CarCardExtras = ({ car }: { car: CarType }) => {
   return (
     <div className=" w-full flex justify-between">
       <div className="w-full flex flex-col items-center">

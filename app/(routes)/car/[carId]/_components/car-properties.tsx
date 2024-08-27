@@ -28,12 +28,12 @@ export const CarProperties = ({ car }: { car: CarType }) => {
         <h5 className=" text-md  text-red-secondary">Horsepower:</h5>
         <p className="text-md md:text-lg text-black-1 font-bold">{car.HP}</p>
       </div>
-      {/* <div className=" flex gap-x-4 items-center">
+      <div className=" flex gap-x-4 items-center">
         <h5 className=" text-md  text-red-secondary">Transimission:</h5>
         <p className="text-md md:text-lg text-black-1 font-bold">
-          {car.transmision}
+          {car.transmission}
         </p>
-      </div> */}
+      </div>
       <div className=" flex gap-x-4 items-center">
         <h5 className=" text-md  text-red-secondary">Drive :</h5>
         <p className="text-md md:text-lg text-black-1 font-bold">{car.drive}</p>

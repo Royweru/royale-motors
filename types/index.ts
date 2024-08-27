@@ -30,7 +30,7 @@ export interface CarType {
   acceleration: number;
   year: string;
   mileage: number;
-  transmision: string;
+  transmission: string;
   isAvailable: boolean;
   isFeatured: boolean;
   images: ImageType[];
