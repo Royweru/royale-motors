@@ -30,7 +30,7 @@ export const CarHead = ({ data }: { data: CarType }) => {
             <div className="  rounded-3xl flex justify-between items-center px-8 md:px-12">
               <p className=" text-2xl font-semibold ">Kes</p>
               <p className="font-sans text-5xl font-extrabold text-white-dark">
-                {data.price}
+                {data.price.toLocaleString("en-US")}
               </p>
             </div>
           </div>

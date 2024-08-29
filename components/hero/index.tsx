@@ -24,13 +24,17 @@ export const Hero = ({
 
   return (
     <div
-      className='w-full bg-[url("/hero1.jpg")] md:h-[450px] h-[350px] bg-cover bg-center
-      flex flex-col md:flex-row md:justify-between  justify-evenly items-center gap-4 lg:px-12 px-4 md:px-10
+      className='w-full bg-[url("/hero1.jpg")] md:h-[420px] h-[350px] bg-cover bg-center
+      flex flex-col  md:justify-between  justify-evenly items-center gap-4 lg:px-12 px-4 md:px-10
      
     '
     >
-      <div className=" w-full  px-6 md:px-12">
-        <h2 className=" lg:h1 h2 text-white">
+      <div />
+      <div className=" w-full text-center">
+        <h2
+          className="  text-3xl lg:text-5xl font-bold 
+        text-balance text-white font-sans w-full"
+        >
           Get your dream car today, what are you waiting for ?
         </h2>
       </div>

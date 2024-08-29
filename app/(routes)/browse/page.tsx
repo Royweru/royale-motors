@@ -27,7 +27,7 @@ const BrowsePage = async ({ searchParams }: props) => {
     <div className=" w-full h-full">
       <Hero models={models} makes={makes} bodyTypes={bodyTypes} />
       <BodyFilter />
-      <CheckFinance />
+      {/* <CheckFinance /> */}
       <SearchHeader models={models} makes={makes} bodyTypes={bodyTypes} />
       <CarDisplay cars={cars} />
       <Test />

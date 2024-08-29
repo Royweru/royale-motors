@@ -35,7 +35,7 @@ export const CarCard = ({ data }: { data: CarType }) => {
 
             <div className=" justify-center items-center hidden lg:flex gap-1">
               <p className=" lg:text-2xl text-sm font-semibold text-blue-secondary">
-                {data.price}
+                {data.price.toLocaleString()}
               </p>
               <p className=" text-xs md:text-sm font-light text-black-2">
                 /only

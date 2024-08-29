@@ -32,6 +32,7 @@ export const SearchBox = ({
     setSelectedModels(makeModels || []);
   }, [makeId, makes]);
 
+  const isDisabled = !makeId || !modelId;
   //   const handleClick = useCallback(() => {
   //     let currentQuery = {};
   //     if (params) {
@@ -80,25 +81,25 @@ export const SearchBox = ({
 
   return (
     <div
-      className=" rounded-2xl font-semibold p-4 bg-white w-full h-[225px] relative shadow-medium
-     backdrop-blur-md border-2 border-txt-accent flex flex-col justify-center gap-8
+      className=" rounded-2xl py-4 px-4 bg-black md:w-4/5 relative shadow-medium
+     backdrop-blur-md border-2 border-txt-accent flex md:flex-col flex-wrap justify-center md:-mb-6 opacity-85
     "
     >
       <div className=" w-full gap-4 flex items-center relative">
         <select
           className="w-full rounded-2xl text-black-1 
-           bg-blue-accent font-semibold text-xl  p-4
+           bg-blue-accent font-semibold text-xl px-4 py-2
             border-blue-secondary "
           value={makeId}
           onChange={(e) => setMakeId(e.target.value)}
-          defaultValue={"Select Make"}
+          defaultValue={" Make"}
         >
-          <option value="" disabled>
-            Select Make
+          <option value="make" disabled>
+            Make
           </option>
           {makes.map((make) => (
             <option value={make.id} key={make.id}>
-              <div className=" relative w-full font-bold text-sm text-black">
+              <div className=" relative w-full font-black text-sm text-black">
                 {make.name}
               </div>
             </option>
@@ -106,17 +107,17 @@ export const SearchBox = ({
         </select>
         <select
           className=" w-full rounded-2xl text-black-1
-         bg-blue-accent font-semibold text-xl p-4 border-blue-secondary "
-          defaultValue={"Select Model"}
+         bg-blue-accent font-semibold text-xl px-4 py-2 border-blue-secondary "
+          defaultValue={"Model"}
           value={modelId}
           onChange={(e) => setModelId(e.target.value)}
         >
-          <option disabled selected>
-            Select Model
+          <option disabled value={"model"}>
+            Model
           </option>
           {selectedModels?.map((model) => (
             <option value={model.id} key={model.id}>
-              <div className=" relative w-full font-bold text-sm text-black">
+              <div className=" relative w-full font-black text-sm text-black">
                 {model.name}
               </div>
             </option>
@@ -126,29 +127,30 @@ export const SearchBox = ({
           value={year}
           onChange={(e) => setYear(e.target.value)}
           className=" w-full rounded-2xl text-black-1
-        bg-blue-accent font-semibold text-xl p-4 border-blue-secondary "
+        bg-blue-accent font-semibold text-xl px-4 py-2 border-blue-secondary "
         >
-          <option value="year of manufacture">Year of Manufacture</option>
+          <option value="year">Year</option>
           {YOM.map((yom) => (
             <option
               value={yom}
               key={yom}
-              className=" font-bold text-black-1 text-sm"
+              className=" font-black text-black-1 text-sm"
             >
               {yom}
             </option>
           ))}
         </select>
-      </div>
-      <div className=" w-full px-12 md:px-24 lg:px-28">
-        <Button
-          variant={"search"}
-          className=" w-full font-bold 
+        <div className=" w-full">
+          <Button
+            variant={"search"}
+            className=" w-full font-black 
         text-xl py-2 "
-          onClick={handleClick}
-        >
-          Search
-        </Button>
+            onClick={handleClick}
+            disabled={isDisabled}
+          >
+            Search
+          </Button>
+        </div>
       </div>
     </div>
   );

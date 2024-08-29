@@ -43,17 +43,17 @@ export const CarProperties = ({ car }: { car: CarType }) => {
           Acceleration(0-100 Km/hr) :
         </h5>
         <p className="text-md md:text-lg text-black-1 font-bold">
-          {car.acceleration}
+          {car.acceleration} sec
         </p>
       </div>
       <div className=" flex gap-x-4 items-center">
-        <h5 className=" text-md  text-red-secondary">Engine size</h5>
+        <h5 className=" text-md  text-red-secondary">Engine size :</h5>
         <p className="text-md md:text-lg text-black-1 font-bold">
           {car.engineSize}
         </p>
       </div>
       <div className=" flex gap-x-4 items-center">
-        <h5 className=" text-md  text-red-secondary">Fuel Type</h5>
+        <h5 className=" text-md  text-red-secondary">Fuel Type :</h5>
         <p className="text-md md:text-lg text-black-1 font-bold">
           {car.fuelType}
         </p>
