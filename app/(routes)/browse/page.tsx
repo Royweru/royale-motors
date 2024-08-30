@@ -9,6 +9,8 @@ import { Test } from "@/components/feature/test";
 import { fetchModels } from "@/actions/GetModels";
 import { fetchMakes } from "@/actions/GetMakes";
 import { fetchTypes } from "@/actions/GetTypes";
+import { Braah_One } from "next/font/google";
+import { BrowseHero } from "@/components/hero/browse-hero";
 
 interface props {
   searchParams: {
@@ -25,7 +27,7 @@ const BrowsePage = async ({ searchParams }: props) => {
   const bodyTypes = await fetchTypes();
   return (
     <div className=" w-full h-full">
-      <Hero models={models} makes={makes} bodyTypes={bodyTypes} />
+      <BrowseHero makes={makes} models={models} bodyTypes={bodyTypes} />
       <BodyFilter />
       {/* <CheckFinance /> */}
       <SearchHeader models={models} makes={makes} bodyTypes={bodyTypes} />

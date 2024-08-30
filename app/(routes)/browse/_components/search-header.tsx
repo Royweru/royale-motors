@@ -24,7 +24,7 @@ export const SearchHeader = ({
 
   return (
     <div className="  container ">
-      <div className="w-full relative flex flex-col gap-y-4 md:gap-y-6 justify-center items-center">
+      <div className="w-full relative flex flex-col gap-y-2 md:gap-y-4 justify-center items-center">
         <div className=" underline italic text-black">
           <h5 className="   text-md tracking-wide font-bold text-white">
             Currently showing :
