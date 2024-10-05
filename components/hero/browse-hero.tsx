@@ -29,7 +29,7 @@ export const BrowseHero = ({
      
     '
     >
-      <div className=" absolute inset-0 w-full bg-black/50 opacity-75 size-full " />
+      {/* <div className=" absolute inset-0 w-full bg-black/50 opacity-75 size-full " /> */}
 
       <div />
       <div className=" w-full text-center">
