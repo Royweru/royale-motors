@@ -1,6 +1,6 @@
 import { CarType } from "@/types";
 import { Car } from "@prisma/client";
-import axios from "axios";
+import db from '@/lib/prisma'
 import qs from "query-string";
 
 interface Query {
@@ -10,28 +10,30 @@ interface Query {
   typeId?: string;
 }
 
-export const fetchCars = async (query: Query): Promise<CarType[]> => {
-  const stringifiedUrl = qs.stringifyUrl(
-    {
-      url: "http://localhost:3000/api/cars",
-      query: {
-        makeId: query?.makeId,
-        modelId: query?.modelId,
-        year: query?.year,
-        typeId: query?.typeId,
-      },
+export const GetCars = async (query: Query) => {
+ 
+ try {
+  const res = await db.car.findMany({
+    where: {
+      makeId:query.makeId,
+      modelId:query.modelId,
+      typeId:query.typeId,
+      year:query.year,
+      isAvailable: true,
     },
-    { skipNull: true, skipEmptyString: true }
-  );
+    include: {
+      make: true,
+      model: true,
+      type: true,
+      category: true,
+      images: true,
+      features: true,
+    },
+  });
 
-  try {
-    const response = await fetch(stringifiedUrl, {
-      next: { revalidate: 30 },
-    });
-    if (!response.ok)
-      throw new Error("Oopsy the data could not be fetched properly");
-    return response.json();
-  } catch (error) {
-    throw new Error("Error fetching Cars: " + error);
-  }
+  return res
+ } catch (error) {
+   console.error(error)
+   return []
+ }
 };

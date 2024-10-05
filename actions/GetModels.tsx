@@ -1,14 +1,16 @@
 import { Model } from "@prisma/client";
-import axios from "axios";
+import db from "@/lib/prisma";
 
-export const fetchModels = async (): Promise<Model[]> => {
-  // JavaScript Example: Fetch Single car
-  // This function demonstrates how to fetch a single car using the Fetch API.
-
+export const GetModels = async (): Promise<Model[]> => {
   try {
-    const response = await axios.get("http://localhost:3000/api/model");
-    return response.data;
+    const res = await db.model.findMany({
+      include: {
+        cars: true,
+      },
+    });
+    return res;
   } catch (error) {
-    throw new Error("Error fetching Models " + error);
+    console.error(error);
+    return [];
   }
 };

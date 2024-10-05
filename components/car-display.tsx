@@ -1,8 +1,21 @@
 import { CarType } from "@/types";
 import React from "react";
 import { CarCard } from "./car-card";
+import { Car, Category, Feature, Image, Make, Model, Type } from "@prisma/client";
 
-export const CarDisplay = ({ cars }: { cars: CarType[] }) => {
+export const CarDisplay = ({ cars }: {
+   cars:(
+    Car
+    &{
+      make:Make,
+      model:Model,
+      type:Type,
+      category:Category,
+      images:Image[],
+      features:Feature[]
+    }
+  )[] }
+  ) => {
   return (
     <div className=" container relative">
       <div

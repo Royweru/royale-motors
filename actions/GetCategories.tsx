@@ -1,7 +1,7 @@
 import { Category } from "@prisma/client";
 import axios from "axios";
 
-export const fetchCategories = async (): Promise<Category[]> => {
+export const GetCategories = async (): Promise<Category[]> => {
   
   try {
     const response = await axios.get("http://localhost:3000/api/category");

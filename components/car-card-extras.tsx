@@ -1,8 +1,28 @@
 import { CarType } from "@/types";
 import Image from "next/image";
+import {
+  Car,
+  Make,
+  Model,
+  Type,
+  Category,
+  Image as ImageType,
+  Feature,
+} from "@prisma/client";
 import React from "react";
 
-export const CarCardExtras = ({ car }: { car: CarType }) => {
+export const CarCardExtras = ({
+  car,
+}: {
+  car: Car & {
+    make: Make;
+    model: Model;
+    type: Type;
+    category: Category;
+    images: ImageType[];
+    features: Feature[];
+  };
+}) => {
   return (
     <div className=" w-full flex justify-between">
       <div className="w-full flex flex-col items-center">

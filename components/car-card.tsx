@@ -1,12 +1,28 @@
 "use client";
 
 import { CarType } from "@/types";
+import { Car,Make,Model,Type,Category,Image as ImageType,Feature } from "@prisma/client";
 import Image from "next/image";
 import React from "react";
 import { CarCardExtras } from "./car-card-extras";
 import { useRouter } from "next/navigation";
 
-export const CarCard = ({ data }: { data: CarType }) => {
+export const CarCard = ({ 
+  data 
+
+}: { 
+  data: (
+    Car
+    &{
+      make:Make,
+      model:Model,
+      type:Type,
+      category:Category,
+      images:ImageType[],
+      features:Feature[]
+    }
+  )
+}) => {
   const router = useRouter();
   return (
     <div
