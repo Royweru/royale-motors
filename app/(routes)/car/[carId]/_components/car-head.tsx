@@ -5,7 +5,7 @@ import { CarProperties } from "./car-properties";
 import { Header } from "./header";
 import { CarFeatures } from "./car-features";
 
-export const CarHead = ({ data }: { data: CarType }) => {
+export const CarHead = ({ data }: { data: any }) => {
   return (
     <div
       className=" max-w-[64rem] lg:mx-0 mx-3  w-full relative bg-transparent border-blue-primary

@@ -4,17 +4,7 @@ import { CarCard } from "./car-card";
 import { Car, Category, Feature, Image, Make, Model, Type } from "@prisma/client";
 
 export const CarDisplay = ({ cars }: {
-   cars:(
-    Car
-    &{
-      make:Make,
-      model:Model,
-      type:Type,
-      category:Category,
-      images:Image[],
-      features:Feature[]
-    }
-  )[] |never[]|void
+   cars:any[]
 }
   ) => {
   return (

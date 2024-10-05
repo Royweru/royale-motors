@@ -1,13 +1,13 @@
 import React from "react";
 import { CarHead } from "./_components/car-head";
-import { fetchSingleCar } from "@/actions/GetCar";
+
 import { WarrantyOption } from "./_components/warranty-option";
 import { FinanceFeature } from "@/components/feature/finance";
 import { Test } from "@/components/feature/test";
-import { fetchCars } from "@/actions/GetCars";
+import { GetCars} from "@/actions/GetCars";
 
 const CarIdPage = async ({ params }: { params: { carId: string } }) => {
-  const cars = await fetchCars({});
+  const cars = await GetCars({});
 
   const car = cars.find((car) => car.id === params.carId);
   if (!car)
