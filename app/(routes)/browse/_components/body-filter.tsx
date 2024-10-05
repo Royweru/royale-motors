@@ -1,10 +1,10 @@
 import { bodyTypes } from "@/constants";
 import { Body } from "./body";
 import React from "react";
-import { fetchTypes } from "@/actions/GetTypes";
+import { GetTypes } from "@/actions/GetTypes";
 
 export const BodyFilter = async () => {
-  const bodyTypes = await fetchTypes();
+  const bodyTypes = await GetTypes();
 
   return (
     <div className=" relative w-full  mx-auto flex flex-col items-center justify-between py-4  md:py-6">

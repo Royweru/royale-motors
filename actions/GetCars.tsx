@@ -11,7 +11,7 @@ interface Query {
 }
 
 export const GetCars = async (query: Query) => {
- 
+ console.log(query)
  try {
   const res = await db.car.findMany({
     where: {
@@ -31,7 +31,19 @@ export const GetCars = async (query: Query) => {
     },
   });
 
-  return res
+ const modifiedCars = res.forEach((car)=>{
+  const  modifiedRentalPrice = car.rentalPrice?.toNearest(4)
+  const modifiedPrice = car.price.toNearest(4)
+  const modifiedAcceleration = car.acceleration.toNearest(5)
+
+  return {
+    ...car,
+    price:modifiedPrice,
+    rentalPrice:modifiedRentalPrice,
+    acceleration:modifiedAcceleration
+  }
+ })
+  return modifiedCars
  } catch (error) {
    console.error(error)
    return []

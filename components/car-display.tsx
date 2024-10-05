@@ -14,7 +14,8 @@ export const CarDisplay = ({ cars }: {
       images:Image[],
       features:Feature[]
     }
-  )[] }
+  )[] |never[]|void
+}
   ) => {
   return (
     <div className=" container relative">
@@ -23,7 +24,7 @@ export const CarDisplay = ({ cars }: {
           gap-1 md:gap-2 lg:gap-3  py-12 md:py-16
          "
       >
-        {cars.map((car) => (
+        {cars?.map((car) => (
           <CarCard key={car.id} data={car} />
         ))}
       </div>

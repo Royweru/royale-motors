@@ -48,3 +48,6 @@ export type MakeType = {
   logo: string;
   models: Model[];
 };
+export type BodyType ={
+  
+}

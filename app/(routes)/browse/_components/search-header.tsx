@@ -1,6 +1,6 @@
 "use client";
-import { fetchMakes } from "@/actions/GetMakes";
-import { fetchModels } from "@/actions/GetModels";
+import { GetMakes } from "@/actions/GetMakes";
+import { GetModels } from "@/actions/GetModels";
 import { Make, Model, Type } from "@prisma/client";
 import { useSearchParams } from "next/navigation";
 import qs from "query-string";
@@ -13,7 +13,7 @@ export const SearchHeader = ({
 }: {
   makes: Make[];
   models: Model[];
-  bodyTypes: Type[];
+  bodyTypes: any[];
 }) => {
   const params = useSearchParams();
   const unstructuredUrl = qs.parse(params.toString());

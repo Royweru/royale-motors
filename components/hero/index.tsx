@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { SearchBox } from "../search-box";
 
 import { CarType, MakeType } from "@/types";
-import { Make, Model, Type } from "@prisma/client";
+import { Car, Make, Model, Type } from "@prisma/client";
 
 export const Hero = ({
   models,
@@ -12,7 +12,7 @@ export const Hero = ({
 }: {
   models: Model[];
   makes: MakeType[];
-  bodyTypes: Type[];
+  bodyTypes:any[]
 }) => {
   const [isMounted, setIsMounted] = useState(false);
 
