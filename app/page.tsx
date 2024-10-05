@@ -1,22 +1,19 @@
-import { fetchSingleCar } from "@/actions/GetCar";
-import { fetchCars } from "@/actions/GetCars";
-import { fetchMakes } from "@/actions/GetMakes";
-import { fetchModels } from "@/actions/GetModels";
-import { fetchTypes } from "@/actions/GetTypes";
+import { GetMakes } from "@/actions/GetMakes";
+import { GetModels } from "@/actions/GetModels";
+import { GetTypes } from "@/actions/GetTypes";
 
-import { CarCard } from "@/components/car-card";
 import { Contact } from "@/components/contact";
 import { Faq } from "@/components/FAQ";
 import { FinanceFeature } from "@/components/feature/finance";
 import { Test } from "@/components/feature/test";
-import { Footer } from "@/components/footer";
+
 import { Hero } from "@/components/hero";
-import Link from "next/link";
+
 import { BodyFilter } from "./(routes)/browse/_components/body-filter";
 export default async function Home() {
-  const models = await fetchModels();
-  const makes = await fetchMakes();
-  const bodytypes = await fetchTypes();
+  const models = await GetModels();
+  const makes = await GetMakes();
+  const bodytypes = await GetTypes();
 
   return (
     <div className="  h-full relative w-full">
